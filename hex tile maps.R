@@ -36,8 +36,6 @@ theme_sb <-
   theme(
     text = element_text(family = "Gill Sans MT", size = 6),
     plot.title = element_text(size = 9),
-    plot.background = element_rect(fill = "white"),
-    plot.subtitle = element_text(size = 6, face = "plain", hjust = 0),
     axis.ticks = element_blank(),
     axis.line = element_blank(),
     axis.text = element_blank(),
@@ -54,20 +52,17 @@ theme_sb <-
     legend.text = element_text(size = 6)
   )
 
-
 ggplot() +
   geom_map(data = employment_pct, map = hex_map,
            aes(fill = pct_category, map_id = Abbreviation),
            color = "white", size = 0.5) +
-  expand_limits(x = hex_map$long, y = hex_map$lat) +
   scale_fill_viridis(option = "plasma", begin = 0.1, end = 0.9,
                      na.value = "lightgray", discrete = TRUE) +
   geom_text(data = cnames, aes(long, lat, label = id),
-            color = "#ffffff", size = 3, family = "Gill Sans MT") +
+            color = "white", size = 3, family = "Gill Sans MT") +
+  expand_limits(x = hex_map$long, y = hex_map$lat) +
   coord_map() +
   labs(title = "Percentage of transportation employees by state") +
   theme_sb
 
-ggsave("plots/hex tile map.png",
-       width = 6.5, height = 3.5,
-       type = "cairo-png")
+ggsave("plots/hex tile map.png", width = 6.5, height = 3.5, type = "cairo-png")
