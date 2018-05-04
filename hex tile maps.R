@@ -6,8 +6,8 @@ library(ggthemes)
 library(viridis)
 library(geofacet)
 library(scales)
-library(Cairo)
 library(maptools)
+# library(Cairo) Optional for embedding fonts and creating high-res PNGs
 
 employment <- read_csv('data/state transportation employment.csv')
 
@@ -65,4 +65,7 @@ ggplot() +
   labs(title = "Percentage of transportation employees by state") +
   theme_sb
 
-ggsave("plots/hex tile map.png", width = 6.5, height = 3.5, type = "cairo-png")
+ggsave("plots/hex tile map.png", width = 6.5, height = 3.5)
+                    
+# Use this instead if you loaded Cairo
+# ggsave("plots/hex tile map.png", width = 6.5, height = 3.5, type = "cairo-png")
