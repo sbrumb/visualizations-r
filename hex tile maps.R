@@ -9,7 +9,8 @@ library(scales)
 library(maptools)
 # library(Cairo) Optional for embedding fonts and creating high-res PNGs
 
-employment <- read_csv('data/state transportation employment.csv')
+output_file <- 'hex tile map.png'
+employment <- read_csv('state transportation employment.csv')
 
 # Calculate each state's percentage of employees; group them in six categories
 employment_pct <- employment %>%
@@ -65,7 +66,7 @@ ggplot() +
   labs(title = "Percentage of transportation employees by state") +
   theme_sb
 
-ggsave("plots/hex tile map.png", width = 6.5, height = 3.5)
+ggsave(output_file, width = 6.5, height = 3.5)
                     
 # Use this instead if you loaded Cairo
-# ggsave("plots/hex tile map.png", width = 6.5, height = 3.5, type = "cairo-png")
+# ggsave(output_file, width = 6.5, height = 3.5, type = "cairo-png")
