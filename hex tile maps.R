@@ -1,12 +1,8 @@
-library(tidyverse)
-library(extrafont)
-library(rgdal)
-library(curl)
-library(ggthemes)
-library(viridis)
-library(geofacet)
-library(scales)
-library(maptools)
+# Load packages automatically with pacman
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load("tidyverse", "extrafont", "rgeos", "rgdal", "curl", "ggthemes",
+               "viridis", "scales", "maptools")
+
 # library(Cairo) Optional for embedding fonts and creating high-res PNGs
 
 output_file <- 'hex tile map.png'
