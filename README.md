@@ -1,5 +1,5 @@
 # visualizations-r
 
-Fledgling collection of R scripts to visualize transportation data. You will need to download the CSV files to make the scripts work correctly.
+Fledgling collection of example R scripts to visualize transportation data.
 
-Hex tile maps: used in chapter 4 of [Transportation Economic Trends 2017](https://www.bts.gov/browse-statistical-products-and-data/transportation-economic-trends/tet-2017-chapter-4)
+* Hex tile maps: used in chapter 4 of [Transportation Economic Trends 2017](https://rosap.ntl.bts.gov/view/dot/35472)

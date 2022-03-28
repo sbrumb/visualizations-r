@@ -28,7 +28,7 @@ hex_map <- hex %>% fortify(region = "iso3166_2")
 cnames <- aggregate(cbind(long, lat) ~ id, data = hex_map,
                     FUN = function(x) mean(range(x)) )
 
-theme_sb <-
+theme_tet <-
   theme_void() +
   theme(
     text = element_text(family = "Gill Sans MT", size = 6),
@@ -56,13 +56,11 @@ ggplot() +
   scale_fill_viridis(option = "plasma", begin = 0.1, end = 0.9,
                      na.value = "lightgray", discrete = TRUE) +
   geom_text(data = cnames, aes(long, lat, label = id),
-            color = "white", size = 3, family = "Gill Sans MT") +
+            color = "white", size = 2, family = "Gill Sans MT") +
   expand_limits(x = hex_map$long, y = hex_map$lat) +
   coord_map() +
   labs(title = "Percentage of transportation employees by state") +
-  theme_sb
+  theme_tet
 
-ggsave(output_file, width = 6.5, height = 3.5)
-                    
-# Use this instead if you loaded Cairo
-# ggsave(output_file, width = 6.5, height = 3.5, type = "cairo-png")
+# Add type="cairo-png" if you loaded Cairo; change DPI if needed
+ggsave(output_file, width = 4, height = 3, bg="white", type="cairo-png", dpi = 300)
